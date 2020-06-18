@@ -11,6 +11,7 @@ public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    int fieldId;
     int employeeId;
     String firstName;
     String insertion;
@@ -23,7 +24,8 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(int employeeId, String firstName, String insertion, String lastName, String employedAs, LocalDate startContract, LocalDate endContract, int hoursPerWeek) {
+    public Employee(int fieldId, int employeeId, String firstName, String insertion, String lastName, String employedAs, LocalDate startContract, LocalDate endContract, int hoursPerWeek) {
+        this.fieldId = fieldId;
         this.employeeId = employeeId;
         this.firstName = firstName;
         this.insertion = insertion;
@@ -32,6 +34,14 @@ public class Employee {
         this.startContract = startContract;
         this.endContract = endContract;
         this.hoursPerWeek = hoursPerWeek;
+    }
+
+    public int getFieldId() {
+        return fieldId;
+    }
+
+    public void setFieldId(int fieldId) {
+        this.fieldId = fieldId;
     }
 
     public int getEmployeeId() {
@@ -101,7 +111,8 @@ public class Employee {
     @Override
     public String toString() {
         return "Employee{" +
-                "employeeId=" + employeeId +
+                "fieldId=" + fieldId +
+                ", employeeId=" + employeeId +
                 ", firstName='" + firstName + '\'' +
                 ", insertion='" + insertion + '\'' +
                 ", lastName='" + lastName + '\'' +
